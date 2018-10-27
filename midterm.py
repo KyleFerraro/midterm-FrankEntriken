@@ -13,7 +13,7 @@ import numpy as np
 
 class MysterySequence(object):
     """
-    Creates object with four attributes: (r) - value that is evaluated, (x0) - initial x value, (N) - number of iterations, (xs) - list of x values
+    Creates object with four attributes: (r)- value that is evaluated, (x0)- initial x value, (N)- number of iterations, (xs)- list of x values
     """
     def __init__(self, r, x0 = 0.5, N = 100):
         """
