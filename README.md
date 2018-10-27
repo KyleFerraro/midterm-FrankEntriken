@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/chapman-phys220-2018f/CHANGEME.svg?branch=master)](https://travis-ci.com/chapman-phys220-2018f/CHANGEME)
+[![Build Status](https://travis-ci.com/chapman-phys220-2018f/midterm-FrankEntriken.svg?token=wgT1hqUDBXxkLQG6rayW&branch=master)](https://travis-ci.com/chapman-phys220-2018f/midterm-FrankEntriken)
 
 # PHYS220/MATH220/CPSC220 Midterm Project
 
