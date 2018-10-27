@@ -1,24 +1,34 @@
 #!/usr/bin/env python3
-
-"""
-Frank Entriken
-2298368
-entriken@chapman.edu
-Scientific Computing 220
-Midterm
-"""
+# -*- coding: utf-8 -*-
+####
+# Frank Entriken
+# Email: entriken@chapman.edu
+# Midterm
+# PHYS 220
+# 10/26/2018
+####
 
 import matplotlib.pyplot as plt
 import numpy as np
 
 class MysterySequence(object):
+    """
+    Creates object with four attributes: (r) - value that is evaluated, (x0) - initial x value, (N) - number of iterations, (xs) - list of x values
+    """
     def __init__(self, r, x0 = 0.5, N = 100):
+        """
+        Initializes object with four attributes which default to specific values
+        """
         self.r = r
         self.x0 = x0
         self.N = N
         self.xs = None
 
     def evaluate(self):
+        """
+        Evaluates using equation according to given r value, initial x value, and number of iterations N
+        Creates list of computed values in xs
+        """
         r = self.r
         x = self.x0
         N = self.N
@@ -28,6 +38,9 @@ class MysterySequence(object):
             x=(r*x*(1-x))
 
     def __call__(self):
+        """
+        Evaluates and returns list of x values if evaluate equals 'None'
+        """
         if (self.xs == None):
             self.evaluate()
             return(self.xs)
@@ -35,7 +48,14 @@ class MysterySequence(object):
             return(self.xs)
 
 class SequencePlotter(MysterySequence):
+    """
+    Plots graph according to given list of x values (xs)
+    """
     def plot(self):
+        """
+        Plots graph by representing list of x values as the y-axis and list of r values according to N as x-axis
+        Plots graph with points, lines connecting points, labels, and title
+        """
         self.evaluate()
         y = self.xs
         x = list(range(self.N+1))
@@ -46,6 +66,10 @@ class SequencePlotter(MysterySequence):
         a.set(ylim = (0,1), xlabel = 'Iteration K', ylabel = 'Population x(k)', title = "Sequence Parameters: x0={}, r={}, N={}".format(self.x0,self.r,self.N))
 
 def scatterplot():
+    """
+    Graphs a scatterplot of computed values at every r value in range [2.9, 4] with an iteration of 0.001
+    Sets r value at 2.9
+    """
     xs = []
     ys = []
     r = 2.9
@@ -60,51 +84,3 @@ def scatterplot():
     fig, ax = plt.subplots(figsize=(12,8))
     ax.scatter(xs, ys, marker='.', color='r')
     ax.set(ylim = (0,1), xlim = (2.9,4), xlabel = 'Iteration R', ylabel = 'Asymptotic Value', title = "Sequence Parameters: x0={0.5}, r={[2.9,4]}, N={300}")
-
-"""
-    r = 2.9
-    X = []
-    Y = []
-    while(r<=4):
-        X = X + [r for i in range(1,151)]
-        temp = MysterySequence(r, 0.5, 300)
-        y = temp()
-        del y[0:150]
-        Y = Y + y
-        r += 0.001
-
-    N = 300
-    x = 0.5
-    r = np.arange(2.9, 4, 0.001)
-
-    xs = []
-    for i in r:
-        xs.append(i)
-    ys = []
-
-    f = plt.figure(figsize=(12,8))
-    for r in (xs):
-        for n in range(N+1):
-            ys.append(x)
-            x=(r*x*(1-x))
-    xs = [xs]*len(ys)
-    print("Length of x's: ", len(xs),"Length of y's: ", len(ys))
-    plt.scatter(xs, ys, marker='.', color='r')
-
-
-
-    plt.scatter([xs]*len(ys), ys, marker='.', color='r')
-
-    for r in xs:
-        plt.scatter(r, ys, marker='.', color='r')
-
-
-    for n in range(N+1):
-        ys.append(x)
-        x=(r*x*(1-x))
-        for r in range(len(r)):
-            plt.scatter
-    f = plt.figure(figsize=(12,8))
-    print(xs, ys)
-    plt.scatter(xs, ys, marker='.', color='r')
-"""
